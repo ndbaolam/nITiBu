@@ -86,21 +86,7 @@ module.exports.login = async (req, res) => {
 
 // [GET] /user/info
 module.exports.info = async (req, res) => {
-  const user = await User.findOne({
-    tokenUser: req.cookies.tokenUser
-  });
-  
-  const courses = [];
-
-  for (const slug of user.courses) {
-    const course = await Course.findOne({
-      slug: slug
-    });
-    courses.push(course)
-  }
-
   res.render("client/pages/user/info", {
     pageTitle: "Thông tin tài khoản",
-    courses: courses
   });
 };

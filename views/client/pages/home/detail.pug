@@ -14,7 +14,7 @@ block main
                     if (course.price)
                         div(class="inner-price-old") #{course.price}$
                     
-                    if(course.status == "active")
+                    if(course.status = 'active')
                         a(
                             href=`/watch/${course.slug}`
                             class="btn btn-success btn-block"
