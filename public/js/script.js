@@ -1,7 +1,7 @@
 // Form Search
 const formSearch = document.querySelector("#form-search");
 if(formSearch) {
-  let url = new URL(window.location.href);
+  let url = new URL('http://localhost:3000/');
 
   formSearch.addEventListener("submit", (event) => {
     event.preventDefault();
