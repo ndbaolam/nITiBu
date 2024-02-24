@@ -4,10 +4,16 @@ include ../../mixins/box-head.pug
 block main
     h1 #{course.title}
 
-    iframe(width='1519' height='526' 
-        src=`${course.video}`
-        title=`${course.title}`
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' 
-        allowfullscreen='')
+    .container.my-5
+        .row
+            .col-9
+                iframe(width='1200' height='526' 
+                    src=`${course.video}`
+                    title=`${course.title}`
+                    frameborder='0'
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' 
+                    allowfullscreen='')
 
+        .row
+            .col-3
+                a(href='' class="btn btn-success btn-block") Hoàn thành khoá học!
