@@ -7,4 +7,6 @@ router.get("/", controller.index);
 
 router.get("/detail/:slug", controller.detail);
 
+router.get('/watch/:slug', controller.watch);
+
 module.exports = router;

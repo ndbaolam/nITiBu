@@ -14,8 +14,8 @@ block main
                     if (course.price)
                         div(class="inner-price-old") #{course.price}$
 
-                    button(
-                        type="submit"
+                    a(
+                        href=`/watch/${course.slug}`
                         class="btn btn-success btn-block"
                     ) Học ngay
 

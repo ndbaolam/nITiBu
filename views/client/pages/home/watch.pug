@@ -1,0 +1,13 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+    h1 #{course.title}
+
+    iframe(width='1519' height='526' 
+        src=`${course.video}`
+        title=`${course.title}`
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' 
+        allowfullscreen='')
+

@@ -31,10 +31,22 @@ module.exports.detail = async (req, res) => {
         slug: req.params.slug
     });
 
-    console.log(course);
-
     res.render("client/pages/home/detail", {
         pageTitle: "Chi tiết khoá học",
+        course: course
+    });
+}
+
+//[GET] /watch/:slug
+module.exports.watch = async (req, res) => {
+    const course = await Course.findOne({
+        slug: req.params.slug
+    });
+
+    console.log(course);
+
+    res.render("client/pages/home/watch", {
+        pageTitle: course.title,
         course: course
     });
 }
