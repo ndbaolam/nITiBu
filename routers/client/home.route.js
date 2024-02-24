@@ -9,4 +9,6 @@ router.get("/detail/:slug", controller.detail);
 
 router.get('/watch/:slug', controller.watch);
 
+router.get('/buy/:slug', controller.buy);
+
 module.exports = router;

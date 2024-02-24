@@ -69,3 +69,14 @@ module.exports.watch = async (req, res) => {
         course: course
     });
 }
+
+//[GET] /buy/:slug
+module.exports.buy = async (req, res) => {
+    await User.updateOne({
+        tokenUser: req.cookies.tokenUser
+    }, {
+        $push: {"courses": req.params.slug}
+    });
+    req.flash('success', 'Mua khoá học thành công!');
+    res.redirect('back');
+}
