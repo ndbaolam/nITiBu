@@ -1,6 +1,9 @@
 const express = require("express");
 const routesClient = require('./routers/client/index.router');
 
+// mongoose.connect('mongodb://localhost:27017')
+//     .then(() => console.log('Connected!'));
+
 const app = express();
 const port = 3000;
 
