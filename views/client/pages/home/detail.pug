@@ -1,11 +1,7 @@
 extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
-include ../../mixins/alert.pug
 
 block main
-    +alert-success(5000)
-    +alert-error(5000)
-    
     .product-detail
         .container.my-5
             .row
@@ -17,16 +13,17 @@ block main
 
                     if (course.price)
                         div(class="inner-price-old") #{course.price}$
-
-                    a(
-                        href=`/watch/${course.slug}`
-                        class="btn btn-success btn-block"
-                    ) Học ngay
-
-                    button(
-                        type="submit"
-                        class="btn btn-success btn-block"
-                    ) Thêm vào giỏ hàng
+                    
+                    if(course.status == "active")
+                        a(
+                            href=`/watch/${course.slug}`
+                            class="btn btn-success btn-block"
+                        ) Học ngay
+                    else
+                        a(
+                            href=`/buy/${course.slug}`
+                            class="btn btn-success btn-block"
+                        ) Mua khoá học
 
     hr
 

@@ -1,4 +1,7 @@
 const Course = require('../../models/course.model');
+const User = require('../../models/user.model');
+
+const paginationHelper = require("../../helpers/pagination.helper");
 
 //[GET]
 module.exports.index = async (req, res) => {
@@ -17,16 +20,28 @@ module.exports.index = async (req, res) => {
     }
     // End Search
 
-    const courses = await Course.find(find);
+    // Pagination
+    const countProducts = await Course.countDocuments(find);
+    const objectPagination = paginationHelper(6, req.query, countProducts);
+    // End Pagination
+
+    const courses = await Course.find(find)
+        .limit(objectPagination.limitItems)
+        .skip(objectPagination.skip);
 
     res.render("client/pages/home/index", {
         pageTitle: "Danh sách khoá học",
-        courses: courses
+        courses: courses,
+        pagination: objectPagination
     });
 }
 
 //[GET] /detail/:slug
 module.exports.detail = async (req, res) => {
+    const user = await User.findOne({
+        tokenUser: req.cookies.tokenUser
+    });
+        
     const course = await Course.findOne({
         slug: req.params.slug
     });

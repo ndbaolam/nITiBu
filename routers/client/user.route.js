@@ -5,6 +5,8 @@ const controller = require("../../controllers/client/user.controller");
 
 const validate = require("../../validates/client/user.validate");
 
+const authMiddleware = require("../../middlewares/client/auth.middleware");
+
 router.get("/register", controller.register);
 
 router.post(
@@ -16,6 +18,12 @@ router.post(
 router.get("/logout", controller.logout);
 
 router.get("/login", controller.login);
+
+router.get(
+  "/info", 
+  authMiddleware.requireAuth,
+  controller.info
+);
 
 router.post("/login", controller.loginPost);
 

@@ -1,5 +1,6 @@
 const md5 = require("md5");
 const User = require("../../models/user.model");
+const Course = require("../../models/course.model");
 
 const generateHelper = require("../../helpers/generate.helper");
 
@@ -82,3 +83,24 @@ module.exports.login = async (req, res) => {
   
     res.redirect("/");
   };
+
+// [GET] /user/info
+module.exports.info = async (req, res) => {
+  const user = await User.findOne({
+    tokenUser: req.cookies.tokenUser
+  });
+  
+  const courses = [];
+
+  for (const slug of user.courses) {
+    const course = await Course.findOne({
+      slug: slug
+    });
+    courses.push(course)
+  }
+
+  res.render("client/pages/user/info", {
+    pageTitle: "Thông tin tài khoản",
+    courses: courses
+  });
+};
