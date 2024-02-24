@@ -5,7 +5,7 @@ block main
   .container.my-3
     .row
       .col-12
-        +box-head("Danh sách sản phẩm")
+        +box-head("Danh sách khoá học")
 
     .row
       if(courses.length > 0)
@@ -18,9 +18,7 @@ block main
               .inner-content
                 h3.inner-title
                   a(href=`/detail/${item.slug}`) #{item.title}
-                .inner-price-new #{item.priceNew}$
                 .inner-price-old #{item.price}$
-                .inner-discount -#{item.discountPercentage}%
       else
         div(class="col-12")
           div(class="alert alert-danger") Không tìm thấy sản phẩm nào.
