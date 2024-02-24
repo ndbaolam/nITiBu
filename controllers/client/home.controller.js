@@ -37,15 +37,19 @@ module.exports.index = async (req, res) => {
 }
 
 //[GET] /detail/:slug
-module.exports.detail = async (req, res) => {
-    const user = await User.findOne({
-        tokenUser: req.cookies.tokenUser
-    });
-        
+module.exports.detail = async (req, res) => {  
     const course = await Course.findOne({
         slug: req.params.slug
     });
 
+    if(req.cookies.tokenUser) {
+        const user = await User.findOne({
+          tokenUser: req.cookies.tokenUser
+        }).select("-password");
+        if(user.courses.find(item => item == course.slug)){
+            course.status = true;
+        }
+    }
     res.render("client/pages/home/detail", {
         pageTitle: "Chi tiết khoá học",
         course: course

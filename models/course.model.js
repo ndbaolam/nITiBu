@@ -14,7 +14,7 @@ const courseSchema = new mongoose.Schema({
     stock: Number,
     video: String,  
     thumbnail: String,
-    status: String,
+    status: Boolean,
     position: Number,
     deleted: Boolean
 }, {

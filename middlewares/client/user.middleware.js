@@ -19,10 +19,6 @@ module.exports.infoUser = async (req, res, next) => {
         courses.push(course)
       }
 
-      for (const item of courses) {
-        item.status = "active"
-      }
-
       res.locals.courses = courses;
     }
   }
