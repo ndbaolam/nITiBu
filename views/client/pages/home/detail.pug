@@ -1,0 +1,34 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+  .product-detail
+    .container.my-5
+      .row
+        .col-6
+          .inner-thumb
+            img(src=course.thumbnail, alt=course.title)
+        .col-6
+          h1(class="inner-title") #{course.title}
+
+          if (course.priceNew)
+            div(class="inner-price-new") #{course.priceNew}$
+
+          if (course.price)
+            div(class="inner-price-old") #{course.price}$
+
+          if (course.discountPercentage)
+            div(class="inner-percent") Giảm tới <span>#{course.discountPercentage}$</span>
+
+            button(
+              type="submit"
+              class="btn btn-success btn-block"
+            ) Học ngay
+
+    hr
+
+    .container.my-5
+      .row
+        .col-12
+          +box-head("Mô tả sản phẩm")
+          .inner-desc !{course.description}

@@ -19,3 +19,17 @@ module.exports.index = async (req, res) => {
         courses: courses
     });
 }
+
+//[GET] /detail/:slug
+module.exports.detail = async (req, res) => {
+    const course = await Course.findOne({
+        slug: req.params.slug
+    });
+
+    console.log(course);
+
+    res.render("client/pages/home/detail", {
+        pageTitle: "Chi tiết khoá học",
+        course: course
+    });
+}
