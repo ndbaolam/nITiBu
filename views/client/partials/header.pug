@@ -1,3 +1,5 @@
+include ../mixins/search.pug
+
 header.header
     .container
         .row.align-items-center
@@ -5,8 +7,10 @@ header.header
                 .inner-logo
                     a(href="/")
                         img(src="/images/logo.svg", alt="Logo")
+            .col-6 
+                +search(keyword)
 
-            .col-9
+            .col-12
                 .inner-menu
                     ul
                         li

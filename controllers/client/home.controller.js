@@ -2,12 +2,22 @@ const Course = require('../../models/course.model');
 
 //[GET]
 module.exports.index = async (req, res) => {
-    const courses = await Course.find({
-        status: "active",
+    const find = {
         deleted: false
-    });
+    }
+    
+    if(req.query.status) {
+        find.status = req.query.status;
+    }
+    
+    // Search
+    if(req.query.keyword) {
+        const regex = new RegExp(req.query.keyword, "i");
+        find.title = regex;
+    }
+    // End Search
 
-    console.log(courses);
+    const courses = await Course.find(find);
 
     res.render("client/pages/home/index", {
         pageTitle: "Danh sách khoá học",
