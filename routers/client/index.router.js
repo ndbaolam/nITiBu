@@ -5,7 +5,7 @@ const userMiddleware = require("../../middlewares/client/user.middleware");
 
 module.exports = (app) => {
   app.use(userMiddleware.infoUser);
-  
+
   app.use("/", homeRoutes);
 
   app.use('/user',userRoutes);

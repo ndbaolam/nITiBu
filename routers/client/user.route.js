@@ -13,4 +13,11 @@ router.post(
   controller.registerPost
 );
 
+router.get("/logout", controller.logout);
+
+router.get("/login", controller.login);
+
+router.post("/login", controller.loginPost);
+
+
 module.exports = router;
