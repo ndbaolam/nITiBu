@@ -6,22 +6,24 @@ header.header
             .col-3
                 .inner-logo
                     a(href="/")
-                        img(src="/images/logo.svg", alt="Logo")
+                        img(src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Trang chủ")
             .col-6 
                 +search(keyword)
 
-            .col-12
+            .col-16
                 .inner-menu
                     ul
-                        li
-                            a(href="/") Trang chủ
                         if(user)
                             li
-                                a(href="/user/info") Tài khoản
+                                a(href="/user/info")
+                                    img(src="https://icon-library.com/images/account-information-icon/account-information-icon-15.jpg" alt="Tài khoản")
                             li
-                                a(href="/user/logout") Đăng xuất
+                                a(href="/user/logout") 
+                                    img(src="https://static-00.iconduck.com/assets.00/logout-icon-1024x922-d6v5rw11.png" alt="Đăng xuất")
                         else
                             li
-                                a(href="/user/login") Đăng nhập
+                                a(href="/user/login") 
+                                    img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXYHNZN7s4uWw7N4wHU7tsEa4jJ5S5rmieA&usqp=CAU" alt="Đăng nhập")
                             li
-                                a(href="/user/register") Đăng ký
+                                a(href="/user/register")
+                                    img(src="https://w7.pngwing.com/pngs/681/874/png-transparent-plus-sign-computer-icons-button-user-register-button-silhouette-internet-area.png" alt="Đăng ký")

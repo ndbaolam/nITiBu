@@ -2,7 +2,9 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
 
 block main
-    h1 #{course.title}
+    .container.my-3
+        .row.col-9
+            h1 #{course.title}
 
     .container.my-5
         .row
