@@ -339,8 +339,10 @@ body {
 .wrapper .facebook:hover,
 .wrapper .facebook:hover .tooltip,
 .wrapper .facebook:hover .tooltip::before {
-  background: #1877F2;
+  background-size: cover;
+  background: #1877F2 url("public/images/logo.png") center;
   color: #ffffff;
+
 }
 
 .wrapper .twitter:hover,
